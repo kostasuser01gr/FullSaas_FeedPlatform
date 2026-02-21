@@ -3,6 +3,9 @@ import { getUserFromRequest } from "@/lib/auth";
 import { getPostById, deletePost } from "@/services/posts.service";
 import { errorToResponse } from "@/lib/errors";
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 interface RouteContext {
   params: { id: string };
 }

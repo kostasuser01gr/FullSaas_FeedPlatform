@@ -13,13 +13,26 @@ const globalForKnex = globalThis as typeof globalThis & {
 };
 
 function createKnex() {
+  const connectionString = process.env.DATABASE_URL;
+
+  if (!connectionString) {
+    console.error("[db] DATABASE_URL is not set — database will not be available");
+  }
+
   return knex({
     client: "pg",
-    connection: process.env.DATABASE_URL!,
+    connection: {
+      connectionString: connectionString ?? "",
+      ssl:
+        process.env.NODE_ENV === "production"
+          ? { rejectUnauthorized: false }
+          : false,
+    },
     pool: {
-      min: 0,          // serverless: don't hold idle connections
-      max: 5,          // Neon/Supabase poolers handle the rest
+      min: 0, // serverless: don't hold idle connections
+      max: 5, // Neon/Supabase poolers handle the rest
       idleTimeoutMillis: 20_000,
+      acquireTimeoutMillis: 10_000,
     },
   });
 }

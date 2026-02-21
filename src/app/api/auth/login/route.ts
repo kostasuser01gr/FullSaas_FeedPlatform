@@ -4,6 +4,9 @@ import { loginUser } from "@/services/auth.service";
 import { setTokenCookie } from "@/lib/auth";
 import { errorToResponse } from "@/lib/errors";
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();

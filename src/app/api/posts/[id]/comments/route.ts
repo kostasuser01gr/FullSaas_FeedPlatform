@@ -4,6 +4,9 @@ import { commentsQuerySchema, createCommentSchema } from "@/lib/validation";
 import { getComments, addComment } from "@/services/comments.service";
 import { errorToResponse } from "@/lib/errors";
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 interface RouteContext {
   params: { id: string };
 }

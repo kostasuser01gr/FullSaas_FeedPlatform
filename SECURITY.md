@@ -16,7 +16,7 @@ and on a weekly schedule (Monday 03:00 UTC).
 
 | Language              | Directories |
 | --------------------- | ----------- |
-| JavaScript/TypeScript | `backend/`, `frontend/` |
+| JavaScript/TypeScript | `src/` (Next.js App Router) |
 
 ## Reporting vulnerabilities
 

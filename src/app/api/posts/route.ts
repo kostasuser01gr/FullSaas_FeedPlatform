@@ -4,6 +4,9 @@ import { getUserFromRequest } from "@/lib/auth";
 import { getFeed, createPost } from "@/services/posts.service";
 import { errorToResponse } from "@/lib/errors";
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 /**
  * GET /api/posts — Paginated feed with cursor, sort, search, filter.
  */
